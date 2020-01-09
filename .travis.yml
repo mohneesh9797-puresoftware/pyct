@@ -5,9 +5,6 @@ language: generic
 #     release: ^v(\d+|\.)*[^a-z]\d*$
 # dev release: ^v(\d+|\.)*[a-z]\d*$
 
-arch: 
-      - amd64
-      - arm64
 env:
   global:
     - PYENV_VERSION=3.7
@@ -33,6 +30,13 @@ jobs:
 
   ########## DEVELOPER INSTALL ##########
 
+  - &pip_default
+    arch: arm64
+    stage: test
+    before_install: pip install pyctdev && doit ecosystem_setup
+    install: doit develop_install -o cmd
+    script: doit test_all
+  
   - &pip_default
     stage: test
     before_install: pip install pyctdev && doit ecosystem_setup
