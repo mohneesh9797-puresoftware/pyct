@@ -31,9 +31,11 @@ jobs:
   ########## DEVELOPER INSTALL ##########
 
   - &pip_default
-    arch: 
-        - amd64
-        - arm64
+    
+    matrix:
+      include:
+        - arch: amd64
+        - arch: arm64
     stage: test
     before_install: sudo pip install pyctdev && sudo doit ecosystem_setup
     install: sudo doit develop_install -o cmd
