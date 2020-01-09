@@ -31,18 +31,14 @@ jobs:
   ########## DEVELOPER INSTALL ##########
 
   - &pip_default
-    arch: arm64
+    arch: 
+        - amd64
+        - arm64
     stage: test
     before_install: sudo pip install pyctdev && sudo doit ecosystem_setup
     install: sudo doit develop_install -o cmd
     script: sudo doit test_all
   
-  - &pip_default
-    stage: test
-    before_install: pip install pyctdev && doit ecosystem_setup
-    install: doit develop_install -o cmd
-    script: doit test_all
-
   ########## END-USER PACKAGES ##########
 
   - &pip_pkg_default
