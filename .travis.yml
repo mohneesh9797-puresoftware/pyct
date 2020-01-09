@@ -5,7 +5,7 @@ language: generic
 #     release: ^v(\d+|\.)*[^a-z]\d*$
 # dev release: ^v(\d+|\.)*[a-z]\d*$
 
-- arch: 
+arch: 
       - amd64
       - arm64
 env:
