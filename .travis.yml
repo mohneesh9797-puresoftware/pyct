@@ -14,6 +14,10 @@ env:
     - LABELS_REL="--label=dev --label=main"
     - PKG_TEST_PYTHON="--test-python=py36 --test-python=py27"
 
+matrix:
+    include:
+          - arch: arm64
+            env: PYENV_VERSION=3.7
 stages:
   - test
   - name: conda_dev_package
